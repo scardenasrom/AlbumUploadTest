@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="@dimen/spacing_medium"
+    tools:context="testing.com.albumuploadtest.activity.MainActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true"
+        >
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/main_small_album_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/primary_button"
+            android:layout_marginBottom="@dimen/spacing_small"
+            android:layout_marginLeft="@dimen/spacing_xxlarge"
+            android:layout_marginRight="@dimen/spacing_xxlarge"
+            android:stateListAnimator="@null"
+            android:text="Álbum pequeño: 24 fotos"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"
+            tools:targetApi="lollipop"
+            />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/main_large_album_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/primary_button"
+            android:layout_marginLeft="@dimen/spacing_xxlarge"
+            android:layout_marginRight="@dimen/spacing_xxlarge"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:stateListAnimator="@null"
+            android:text="Álbum pequeño: 96 fotos"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"
+            tools:targetApi="lollipop"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
