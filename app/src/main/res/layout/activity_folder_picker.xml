@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -8,7 +9,13 @@
     <GridView
         android:id="@+id/folder_picker_grid_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:horizontalSpacing="5dp"
+        android:numColumns="2"
+        android:padding="@dimen/spacing_medium"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp"
         />
 
     <android.support.v7.widget.AppCompatButton
@@ -21,6 +28,8 @@
         android:text="Confirmar Selección"
         android:textColor="@color/white"
         android:textSize="@dimen/text_large"
+        android:visibility="gone"
+        tools:visibility="visible"
         />
 
 </RelativeLayout>

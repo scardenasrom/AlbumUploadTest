@@ -1,4 +1,4 @@
-package testing.com.albumuploadtest.view;
+package testing.com.albumuploadtest.dto;
 
 public class FolderDto {
 
