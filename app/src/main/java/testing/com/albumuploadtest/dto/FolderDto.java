@@ -6,6 +6,7 @@ public class FolderDto {
     private String name;
     private String path;
     private Integer numPictures;
+    private Integer numOfSelectedPics;
     private String uriImage;
     private String uriThumbnail;
 
@@ -50,6 +51,14 @@ public class FolderDto {
         this.numPictures = numPictures;
     }
 
+    public Integer getNumOfSelectedPics() {
+        return numOfSelectedPics;
+    }
+
+    public void setNumOfSelectedPics(Integer numOfSelectedPics) {
+        this.numOfSelectedPics = numOfSelectedPics;
+    }
+
     public String getUriImage() {
         return uriImage;
     }
@@ -64,6 +73,14 @@ public class FolderDto {
 
     public void setUriThumbnail(String uriThumbnail) {
         this.uriThumbnail = uriThumbnail;
+    }
+
+    public String getUriPreview() {
+        if (uriThumbnail != null && uriThumbnail.length() > 0) {
+            return "file://" + uriThumbnail;
+        } else {
+            return "file://" + uriImage;
+        }
     }
 
 }

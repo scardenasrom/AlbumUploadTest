@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import testing.com.albumuploadtest.R;
+import testing.com.albumuploadtest.application.ZSApplication;
 
 public class MainActivity extends ParentActivity {
 
@@ -17,14 +18,14 @@ public class MainActivity extends ParentActivity {
     }
 
     public void smallAlbumClicked() {
+        ZSApplication.getInstance().startAlbum(SMALL_ALBUM_NUM_OF_PICS);
         Intent intent = new Intent(MainActivity.this, FolderPickerActivity.class);
-        intent.putExtra(EXTRA_NUM_OF_PICS, SMALL_ALBUM_NUM_OF_PICS);
         startActivity(intent);
     }
 
     public void largeAlbumClicked() {
+        ZSApplication.getInstance().startAlbum(LARGE_ALBUM_NUM_OF_PICS);
         Intent intent = new Intent(MainActivity.this, FolderPickerActivity.class);
-        intent.putExtra(EXTRA_NUM_OF_PICS, LARGE_ALBUM_NUM_OF_PICS);
         startActivity(intent);
     }
 

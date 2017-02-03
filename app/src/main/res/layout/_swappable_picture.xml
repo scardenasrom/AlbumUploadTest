@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swappable_picture_root_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/grey"
+    android:layout_margin="@dimen/spacing_xxsmall"
+    android:padding="@dimen/spacing_xsmall"
+    >
+
+    <ImageView
+        android:id="@+id/swappable_picture_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        />
+
+</RelativeLayout>

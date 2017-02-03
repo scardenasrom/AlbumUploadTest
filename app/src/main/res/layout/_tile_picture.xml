@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testing.com.albumuploadtest.partials.TilePicture
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/tile_picture_placeholder"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_placeholder"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/tile_picture_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tile_picture_placeholder"
+        android:layout_alignLeft="@+id/tile_picture_placeholder"
+        android:layout_alignRight="@+id/tile_picture_placeholder"
+        android:layout_alignTop="@+id/tile_picture_placeholder"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_placeholder" />
+
+    <TextView
+        android:id="@+id/tile_picture_resolution"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_transparent"
+        android:layout_alignBottom="@+id/tile_picture_placeholder"
+        android:layout_alignLeft="@+id/tile_picture_placeholder"
+        android:layout_alignRight="@+id/tile_picture_placeholder"
+        android:textColor="@color/white"
+        android:padding="@dimen/spacing_medium"
+        />
+
+    <View
+        android:id="@+id/tile_picture_transparency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tile_picture_image"
+        android:layout_alignLeft="@+id/tile_picture_image"
+        android:layout_alignRight="@+id/tile_picture_image"
+        android:layout_alignTop="@+id/tile_picture_image"
+        android:alpha="0.4"
+        android:background="@color/white"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/tile_picture_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tile_picture_image"
+        android:layout_alignRight="@+id/tile_picture_image"
+        android:layout_margin="@dimen/spacing_medium"
+        android:src="@drawable/ic_check"
+        android:visibility="gone" />
+
+</testing.com.albumuploadtest.partials.TilePicture>

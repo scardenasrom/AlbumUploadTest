@@ -5,7 +5,6 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:padding="@dimen/spacing_medium"
     tools:context="testing.com.albumuploadtest.activity.MainActivity"
     >
@@ -25,12 +24,10 @@
             android:layout_marginBottom="@dimen/spacing_small"
             android:layout_marginLeft="@dimen/spacing_xxlarge"
             android:layout_marginRight="@dimen/spacing_xxlarge"
-            android:stateListAnimator="@null"
-            android:text="Álbum pequeño: 24 fotos"
+            android:text="Álbum pequeño: 8 fotos"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/text_large"
-            tools:targetApi="lollipop"
             />
 
         <android.support.v7.widget.AppCompatButton
@@ -41,12 +38,10 @@
             android:layout_marginLeft="@dimen/spacing_xxlarge"
             android:layout_marginRight="@dimen/spacing_xxlarge"
             android:layout_marginTop="@dimen/spacing_small"
-            android:stateListAnimator="@null"
-            android:text="Álbum pequeño: 96 fotos"
+            android:text="Álbum grande: 24 fotos"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="@dimen/text_large"
-            tools:targetApi="lollipop"
             />
 
     </LinearLayout>

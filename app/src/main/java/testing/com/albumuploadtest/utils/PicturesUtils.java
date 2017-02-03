@@ -1,18 +1,25 @@
 package testing.com.albumuploadtest.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Log;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
+import testing.com.albumuploadtest.application.ZSApplication;
 import testing.com.albumuploadtest.dto.FolderDto;
+import testing.com.albumuploadtest.dto.PictureDto;
+import testing.com.albumuploadtest.dto.PictureResolutionDto;
 
 public class PicturesUtils {
 
+    //region Folder Operations
     public static List<FolderDto> getFoldersList(Context context) {
         List<FolderDto> res = new LinkedList<>();
 
@@ -78,7 +85,7 @@ public class PicturesUtils {
 
     public static Integer getNumPicturesInFolder(Context context, FolderDto folder) {
         int res = 0;
-        Cursor cursor = getPicturesInAlbumCursor(context, folder);
+        Cursor cursor = getPicturesInFolderCursor(context, folder);
         if (cursor.moveToFirst()) {
             res = cursor.getCount();
         }
@@ -88,7 +95,55 @@ public class PicturesUtils {
         return res;
     }
 
-    public static Cursor getPicturesInAlbumCursor(Context context, FolderDto folder) {
+    public static Integer getNumOfSelectedPicturesInFolder(FolderDto folder) {
+        Integer i = 0;
+        List<PictureDto> albumPictures = ZSApplication.getInstance().getAlbum().getPictures();
+        for (PictureDto picture: albumPictures) {
+            if (folder.getName().equals(picture.getFolderName()))
+                i++;
+        }
+        return i;
+    }
+    //endregion
+
+    //region Pictures Operations
+    public static List<PictureDto> getPicturesList(Context context, FolderDto folder) {
+        List<PictureDto> res = new LinkedList<>();
+
+        Cursor cursor = getPicturesInFolderCursor(context, folder);
+
+        if (cursor.moveToFirst()) {
+            String image;
+            String thumbnail;
+            Integer id;
+            int dataColumn = cursor.getColumnIndex(MediaStore.Images.Media.DATA);
+            int idColumn = cursor.getColumnIndex(MediaStore.Images.Media._ID);
+
+            do {
+                thumbnail = "";
+                image = cursor.getString(dataColumn);
+                id = cursor.getInt(idColumn);
+                File tempFile = new File(image);
+                PictureResolutionDto tempFileResolution = getPictureResolution(tempFile);
+
+                PictureDto picture = new PictureDto(id, image, thumbnail, tempFileResolution.getWidth(), tempFileResolution.getHeight());
+                res.add(picture);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        return res;
+    }
+
+    public static PictureResolutionDto getPictureResolution(File file) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(file.getPath(), options);
+        return new PictureResolutionDto(options.outWidth, options.outHeight);
+    }
+    //endregion
+
+    public static Cursor getPicturesInFolderCursor(Context context, FolderDto folder) {
         String[] projection = new String[]{
                 MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
                 MediaStore.Images.ImageColumns.DATA,

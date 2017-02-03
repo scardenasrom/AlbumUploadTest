@@ -1,35 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
-    <GridView
-        android:id="@+id/folder_picker_grid_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:horizontalSpacing="5dp"
-        android:numColumns="2"
-        android:padding="@dimen/spacing_medium"
-        android:scrollbars="none"
-        android:verticalSpacing="5dp"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/folder_picker_confirm_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/floating_button"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/spacing_xxlarge"
-        android:text="Confirmar Selección"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_large"
-        android:visibility="gone"
-        tools:visibility="visible"
-        />
+        <GridView
+            android:id="@+id/folder_picker_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:horizontalSpacing="5dp"
+            android:numColumns="2"
+            android:padding="@dimen/spacing_xsmall"
+            android:scrollbars="none"
+            android:verticalSpacing="5dp"
+            />
 
-</RelativeLayout>
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/folder_picker_dummy_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_dummy_background"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/spacing_xxlarge"
+            android:visibility="gone"
+            />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/folder_picker_confirm_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_animation"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/spacing_xxlarge"
+            android:text="Confirmar Selección"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_large"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
