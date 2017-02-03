@@ -31,8 +31,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/primary_button_round"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/spacing_small"
-                android:padding="@dimen/spacing_medium"
+                android:layout_marginRight="@dimen/spacing_medium"
+                android:padding="@dimen/spacing_small"
                 android:src="@drawable/ic_back"
                 />
 
@@ -57,7 +57,7 @@
                 android:background="@drawable/primary_button_round"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/spacing_medium"
+                android:layout_marginRight="@dimen/spacing_xsmall"
                 android:padding="@dimen/spacing_xxsmall"
                 android:src="@drawable/ic_help"
                 />

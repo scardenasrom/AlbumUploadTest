@@ -2,6 +2,7 @@ package testing.com.albumuploadtest.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -78,7 +79,8 @@ public class OrderPicturesActivity extends ParentActivity {
         nextIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO Continue to order page activity
+                Intent intent = new Intent(OrderPicturesActivity.this, OrderPagesActivity.class);
+                startActivity(intent);
             }
         });
 

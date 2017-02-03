@@ -6,20 +6,21 @@ import java.util.List;
 
 public class AlbumDto {
 
-    private int totalNumOfPics;
+    private CoverDto cover;
     private List<PictureDto> pictures;
+    private int totalNumOfPics;
 
     public AlbumDto(int totalNumOfPics) {
         this.totalNumOfPics = totalNumOfPics;
         this.pictures = new ArrayList<>();
     }
 
-    public int getTotalNumOfPics() {
-        return totalNumOfPics;
+    public CoverDto getCover() {
+        return cover;
     }
 
-    public void setTotalNumOfPics(int totalNumOfPics) {
-        this.totalNumOfPics = totalNumOfPics;
+    public void setCover(CoverDto cover) {
+        this.cover = cover;
     }
 
     public List<PictureDto> getPictures() {
@@ -28,6 +29,14 @@ public class AlbumDto {
 
     public void setPictures(List<PictureDto> pictures) {
         this.pictures = pictures;
+    }
+
+    public int getTotalNumOfPics() {
+        return totalNumOfPics;
+    }
+
+    public void setTotalNumOfPics(int totalNumOfPics) {
+        this.totalNumOfPics = totalNumOfPics;
     }
 
     public void addNewPicture(PictureDto picture) {

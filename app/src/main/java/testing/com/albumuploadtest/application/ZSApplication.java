@@ -9,6 +9,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import testing.com.albumuploadtest.R;
 import testing.com.albumuploadtest.dto.AlbumDto;
+import testing.com.albumuploadtest.dto.CoverDto;
 import testing.com.albumuploadtest.dto.PictureDto;
 
 public class ZSApplication extends Application {
@@ -76,6 +77,14 @@ public class ZSApplication extends Application {
     public void swapPictures(PictureDto pic1, PictureDto pic2) {
         if (pic1 != null && pic2 != null)
             album.swapPictures(pic1, pic2);
+    }
+
+    public void addCoverToAlbum(CoverDto cover) {
+        album.setCover(cover);
+    }
+
+    public CoverDto getAlbumCover() {
+        return album.getCover();
     }
 
 }
