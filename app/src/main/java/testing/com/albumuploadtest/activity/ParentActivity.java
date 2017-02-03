@@ -15,6 +15,9 @@ public class ParentActivity extends AppCompatActivity {
 
     protected static final String EXTRA_FOLDER_STRING = "extraFolderString";
 
+    protected static final int COVER_CREATION_REQUEST_CODE = 100;
+    protected static final int COVER_IMAGE_REQUEST_CODE = 200;
+
     protected static final int SMALL_ALBUM_NUM_OF_PICS = 8;
     protected static final int LARGE_ALBUM_NUM_OF_PICS = 24;
 

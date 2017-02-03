@@ -1,9 +1,10 @@
 package testing.com.albumuploadtest.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
-import android.widget.Toast;
+import android.view.MenuItem;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
@@ -22,6 +23,9 @@ public class OrderPagesActivity extends ParentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_pages);
 
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         aq.id(R.id.order_pages_cover_image).clicked(this, "editCover");
         aq.id(R.id.order_pages_cover_title).clicked(this, "editCover");
         aq.id(R.id.order_pages_cover_placeholder).clicked(this, "editCover");
@@ -31,6 +35,24 @@ public class OrderPagesActivity extends ParentActivity {
         ZSApplication.getInstance().addCoverToAlbum(testCover);
 
         setupCover();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case COVER_CREATION_REQUEST_CODE:
+                setupCover();
+                break;
+        }
     }
 
     private void setupCover() {
@@ -53,7 +75,8 @@ public class OrderPagesActivity extends ParentActivity {
     }
 
     public void editCover() {
-        Toast.makeText(OrderPagesActivity.this, "Hi!", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(OrderPagesActivity.this, CoverEditorActivity.class);
+        startActivityForResult(intent, COVER_CREATION_REQUEST_CODE);
     }
 
 }

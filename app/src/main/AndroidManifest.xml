@@ -28,24 +28,49 @@
             android:name=".activity.FolderPickerActivity"
             android:label="Escoge las fotografías"
             android:theme="@style/AppTheme"
+            android:launchMode="singleTask"
             />
 
         <activity
             android:name=".activity.PicturePickerActivity"
             android:label="Escoge las fotografías"
             android:theme="@style/AppTheme"
+            android:launchMode="singleTask"
             />
 
         <activity
             android:name=".activity.OrderPicturesActivity"
             android:label="Ordena las fotografías"
             android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
             />
 
         <activity
             android:name=".activity.OrderPagesActivity"
             android:label="Previsualización de tu álbum"
             android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".activity.CoverEditorActivity"
+            android:label="Portada"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".activity.CoverFolderPickerActivity"
+            android:label="Escoge la portada"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".activity.CoverPicturePickerActivity"
+            android:label="Escoge la portada"
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"
             />
 
     </application>

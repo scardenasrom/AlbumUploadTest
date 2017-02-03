@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/grey"
         >
 
         <GridView
@@ -17,11 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:horizontalSpacing="5dp"
+            android:horizontalSpacing="@dimen/spacing_xsmall"
             android:numColumns="2"
             android:padding="@dimen/spacing_xsmall"
             android:scrollbars="none"
-            android:verticalSpacing="5dp"
+            android:verticalSpacing="@dimen/spacing_xsmall"
             />
 
         <android.support.v7.widget.AppCompatButton

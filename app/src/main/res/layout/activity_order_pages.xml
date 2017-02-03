@@ -74,6 +74,7 @@
                         android:layout_alignTop="@+id/order_pages_cover_image"
                         android:padding="@dimen/spacing_small"
                         android:text="Selecciona una foto de portada para poder enviar tu álbum a imprimir"
+                        android:textColor="@color/primary"
                         />
 
                 </RelativeLayout>
