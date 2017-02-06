@@ -34,6 +34,7 @@ public class CoverEditorActivity extends ParentActivity {
 
         aq.id(R.id.cover_editor_placeholder).clicked(this, "pickCover");
         aq.id(R.id.cover_editor_image).clicked(this, "pickCover");
+        aq.id(R.id.cover_editor_confirm_button).clicked(this, "confirmCover");
     }
 
     @Override
@@ -60,6 +61,30 @@ public class CoverEditorActivity extends ParentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case COVER_IMAGE_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    String coverPictureString = data.getStringExtra(EXTRA_COVER_PICTURE);
+                    if (coverPictureString != null && !TextUtils.isEmpty(coverPictureString)) {
+                        PictureDto coverPicture = gson.fromJson(coverPictureString, PictureDto.class);
+                        if (cover != null) {
+                            cover.setPicture(coverPicture);
+                        } else {
+                            cover = new CoverDto(coverPicture);
+                        }
+                        ImageSize imageSize = new ImageSize(300, 300);
+                        ImageLoader imageLoader = ImageLoader.getInstance();
+                        imageLoader.displayImage(coverPicture.getUriPreview(), aq.id(R.id.cover_editor_image).getImageView(), imageSize);
+                        aq.id(R.id.cover_editor_placeholder).gone();
+                        aq.id(R.id.cover_editor_disabled_button).gone();
+                    }
+                }
+                break;
+        }
+    }
+
     private void loadCover() {
         cover = ZSApplication.getInstance().getAlbumCover();
         if (cover != null) {
@@ -84,7 +109,7 @@ public class CoverEditorActivity extends ParentActivity {
     public void pickCover() {
         Intent intent = new Intent(CoverEditorActivity.this, CoverFolderPickerActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        startActivityForResult(intent, COVER_IMAGE_REQUEST_CODE);
     }
 
     private void setupFloatingButtonAnimation() {
@@ -92,6 +117,13 @@ public class CoverEditorActivity extends ParentActivity {
         gradientAnimation.setEnterFadeDuration(1000);
         gradientAnimation.setExitFadeDuration(500);
         gradientAnimation.start();
+    }
+
+    public void confirmCover() {
+        String title = aq.id(R.id.cover_editor_title).getText().toString();
+        cover.setTitle(title);
+        ZSApplication.getInstance().addCoverToAlbum(cover);
+        finish();
     }
 
 }

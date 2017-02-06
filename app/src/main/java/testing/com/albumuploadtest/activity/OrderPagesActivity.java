@@ -30,10 +30,14 @@ public class OrderPagesActivity extends ParentActivity {
         aq.id(R.id.order_pages_cover_title).clicked(this, "editCover");
         aq.id(R.id.order_pages_cover_placeholder).clicked(this, "editCover");
 
-        CoverDto testCover = new CoverDto(ZSApplication.getInstance().getAlbum().getPictures().get(0));
-        testCover.setTitle("Prueba");
-        ZSApplication.getInstance().addCoverToAlbum(testCover);
+//        CoverDto testCover = new CoverDto(ZSApplication.getInstance().getAlbum().getPictures().get(0));
+//        testCover.setTitle("Prueba");
+//        ZSApplication.getInstance().addCoverToAlbum(testCover);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         setupCover();
     }
 
@@ -62,6 +66,7 @@ public class OrderPagesActivity extends ParentActivity {
             String title = cover.getTitle();
             if (title != null && !TextUtils.isEmpty(title)) {
                 aq.id(R.id.order_pages_cover_title).text(title);
+                aq.id(R.id.order_pages_cover_title).visible();
             } else {
                 aq.id(R.id.order_pages_cover_title).invisible();
             }

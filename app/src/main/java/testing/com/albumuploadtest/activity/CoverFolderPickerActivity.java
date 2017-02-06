@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,6 +49,23 @@ public class CoverFolderPickerActivity extends ParentActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case COVER_IMAGE_REQUEST_CODE:
+                if (resultCode == RESULT_OK) {
+                    String coverPictureString = data.getStringExtra(EXTRA_COVER_PICTURE);
+                    if (coverPictureString != null && !TextUtils.isEmpty(coverPictureString)) {
+                        Intent resultIntent = new Intent();
+                        resultIntent.putExtra(EXTRA_COVER_PICTURE, coverPictureString);
+                        setResult(RESULT_OK, resultIntent);
+                        finish();
+                    }
+                }
+                break;
+        }
     }
 
     private void loadFolders() {

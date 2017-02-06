@@ -1,6 +1,7 @@
 package testing.com.albumuploadtest.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.MenuItem;
@@ -78,7 +79,7 @@ public class CoverPicturePickerActivity extends ParentActivity {
             return 0;
         }
 
-        public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, final View convertView, ViewGroup parent) {
             final TilePicture tileView;
             if (convertView == null) {
                 tileView = (TilePicture)View.inflate(mContext, R.layout._tile_picture, null);
@@ -92,7 +93,11 @@ public class CoverPicturePickerActivity extends ParentActivity {
                 @Override
                 public void onClick(View view) {
                     PictureDto coverPicture = tileView.getPicture();
-                    //TODO
+                    String coverPictureString = gson.toJson(coverPicture, PictureDto.class);
+                    Intent resultIntent = new Intent();
+                    resultIntent.putExtra(EXTRA_COVER_PICTURE, coverPictureString);
+                    setResult(RESULT_OK, resultIntent);
+                    finish();
                 }
             });
 

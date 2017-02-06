@@ -14,6 +14,7 @@ public class ParentActivity extends AppCompatActivity {
     protected static final String PREFS_DONT_SHOW_ORDER_TUTORIAL = "dontShowOrderTutorial";
 
     protected static final String EXTRA_FOLDER_STRING = "extraFolderString";
+    protected static final String EXTRA_COVER_PICTURE = "extraCoverPicture";
 
     protected static final int COVER_CREATION_REQUEST_CODE = 100;
     protected static final int COVER_IMAGE_REQUEST_CODE = 200;
