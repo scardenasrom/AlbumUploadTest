@@ -20,7 +20,9 @@ public class ParentActivity extends AppCompatActivity {
     protected static final int COVER_IMAGE_REQUEST_CODE = 200;
 
     protected static final int SMALL_ALBUM_NUM_OF_PICS = 8;
+    protected static final int SMALL_ALBUM_PICS_PER_PAGE = 2;
     protected static final int LARGE_ALBUM_NUM_OF_PICS = 24;
+    protected static final int LARGE_ALBUM_PICS_PER_PAGE = 4;
 
     protected AQuery aq;
     protected Gson gson;
